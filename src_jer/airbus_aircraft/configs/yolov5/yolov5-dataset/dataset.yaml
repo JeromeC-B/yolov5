@@ -1,10 +1,16 @@
 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
 path: C:/projets/external/database/airbus-aircraft-detection/raw-data/archive  # dataset root dir
-train: images  # train images (relative to 'path') 118287 images
-val: images  # val images (relative to 'path') 5000 images
-test: extras  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+train: imgs-train.txt
+val: imgs-val.txt
+test: extras
 
 # Classes
 names:
   0: airplane
+
+
+# ajout jer
+images_folder: images # pour spécifier où sont les images (je ne sais pas si cela va être utile)
+split_ratio: 0.6 # définir un meilleur ratio? Selon le nb d'images...
+k_fold: 0 # raisonable de penser qu'on peut faire un k-fold? DEFAULT=0, aucun k-fold
