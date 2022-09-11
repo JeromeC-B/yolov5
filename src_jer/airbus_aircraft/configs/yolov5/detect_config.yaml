@@ -1,0 +1,7 @@
+# config for the detect run function
+weights: C:\projets\yolov5\yolov5s.pt
+source: C:\projets\external\database\airbus-aircraft-detection\raw-data\archive\extras
+data: C:\projets\airbus-aircraft-detection\configs\dataset.yaml
+imgsz: (2560, 2560)
+device: 0
+project: C:\projets\external\database\airbus-aircraft-detection\data-2022-09-10
