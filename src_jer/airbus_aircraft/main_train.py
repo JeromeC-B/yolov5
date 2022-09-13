@@ -11,7 +11,7 @@ import ast
 
 
 import train
-from src_jer.airbus_aircraft.train import create_train_val_txt
+from src_jer.airbus_aircraft.training import create_train_val_txt
 
 if __name__ == '__main__':
 
@@ -21,40 +21,51 @@ if __name__ == '__main__':
 
     time_debut = time.time()
 
-    with open(r"C:\projets\yolov5\src_jer\airbus_aircraft\configs\yolov5\train_config.yaml", 'r') as stream:
+    with open(r"C:\projets\yolov5\src_jer\airbus_aircraft\configs\train_config.yaml", 'r') as stream:
         config = yaml.safe_load(stream)
 
     # ### faire les train/val .txt
     create_train_val_txt.create_train_val_txt_from_yaml(path_yaml=config["data"])
 
     train.run(weights=config["weights"],
-               source=config["source"],
-               data=config["data"],
-               imgsz=ast.literal_eval(config["imgsz"]),
-               conf_thres=config["conf_thres"],
-               iou_thres=config["iou_thres"],
-               max_det=config["max_det"],
-               device=config["device"],
-               view_img=config["view_img"],
-               save_txt=config["save_txt"],
-               save_conf=config["save_conf"],
-               save_crop=config["save_crop"],
-               nosave=config["nosave"],
-               classes=ast.literal_eval(config["classes"]),
-               agnostic_nms=config["agnostic_nms"],
-               augment=config["augment"],
-               visualize=config["visualize"],
-               update=config["update"],
-               project=config["project"],
-               name=config["name"],
-               exist_ok=config["exist_ok"],
-               line_thickness=config["line_thickness"],
-               hide_labels=config["hide_labels"],
-               hide_conf=config["hide_conf"],
-               half=config["half"],
-               dnn=config["dnn"],
-               vid_stride=config["vid_stride"]
-               )
+              cfg=config["cfg"],
+              data=config["data"],
+              hyp=config["hyp"],
+              epochs=config["epochs"],
+              batch_size=config["batch_size"],
+              imgsz=config["imgsz"],
+              rect=config["rect"],
+              resume=config["resume"],
+              nosave=config["nosave"],
+              noval=config["noval"],
+              noautoanchor=config["noautoanchor"],
+              noplots=config["noplots"],
+              evolve=ast.literal_eval(config["evolve"]),
+              bucket=config["bucket"],
+              cache=ast.literal_eval(config["cache"]),
+              image_weights=config["image_weights"],
+              device=config["device"],
+              multi_scale=config["multi_scale"],
+              single_cls=config["single_cls"],
+              optimizer=config["optimizer"],
+              sync_bn=config["sync_bn"],
+              workers=config["workers"],
+              project=config["project"],
+              name=config["name"],
+              exist_ok=config["exist_ok"],
+              quad=config["quad"],
+              cos_lr=config["cos_lr"],
+              label_smoothing=config["label_smoothing"],
+              patience=config["patience"],
+              freeze=config["freeze"],
+              save_period=config["save_period"],
+              seed=config["seed"],
+              local_rank=config["local_rank"],
+              entity=ast.literal_eval(config["entity"]),
+              upload_dataset=config["upload_dataset"],
+              bbox_interval=config["bbox_interval"],
+              artifact_alias=config["artifact_alias"]
+              )
 
     print('\n')
     print("temps d'exécution: ", datetime.timedelta(seconds=time.time() - time_debut))
