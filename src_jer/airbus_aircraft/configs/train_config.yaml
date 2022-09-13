@@ -1,0 +1,43 @@
+# config for the train run function
+weights: C:\projets\yolov5\yolov5s.pt # type=str, default=ROOT / 'yolov5s.pt', help='initial weights path, "" if from scratch')
+cfg: "" # type=str, default='', help='model.yaml path')
+data: C:\projets\yolov5\src_jer\airbus_aircraft\configs\dataset\dataset.yaml # type=str, default=ROOT / 'data/coco128.yaml', help='dataset.yaml path')
+hyp: C:\projets\yolov5\src_jer\airbus_aircraft\configs\hyps\hyp.scratch-low-jer.yaml # type=str, default=ROOT / 'data/hyps/hyp.scratch-low.yaml', help='hyperparameters path')
+epochs: 10 # type=int, default=300, help='total training epochs')
+batch_size: 2 # type=int, default=16, help='total batch size for all GPUs, -1 for autobatch')
+imgsz: 2560 # type=int, default=640, help='train, val image size (pixels)')
+rect: False # action='store_true', help='rectangular training') ## JE PENSE QUE rect == False pour train loader, et par defautl pour val loader == True.. voir dans code
+resume: False # nargs='?', const=True, default=False, help='resume most recent training') DEFAULT=False
+nosave: False # action='store_true', help='only save final checkpoint') DEFAULT=False
+noval: False # action='store_true', help='only validate final epoch') DEFAULT=False
+noautoanchor: False # action='store_true', help='disable AutoAnchor') DEFAULT=False
+noplots: False # action='store_true', help='save no plot files') DEFAULT=False
+evolve: None # type=int, nargs='?', const=300, help='evolve hyperparameters for x generations') DEFAULT=None (VENIR JOUER AVEC CE PARAM UN JOUR)
+bucket: "" # type=str, default='', help='gsutil bucket') DEFAULT=""
+cache: None # type=str, nargs='?', const='ram', help='--cache images in "ram" (default) or "disk"') DEFAULT=None
+image_weights: False # action='store_true', help='use weighted image selection for training') DEFAULT=False
+device: 0 # default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
+multi_scale: False # action='store_true', help='vary img-size +/- 50%%') DEFAULT=False
+single_cls: False # action='store_true', help='train multi-class data as single-class') DEFAULT=False
+optimizer: SGD # type=str, choices=['SGD', 'Adam', 'AdamW'], default='SGD', help='optimizer') DEFAULT=SGD   (VENIR JOUER AVEC CE PARAM)
+sync_bn: False # action='store_true', help='use SyncBatchNorm, only available in DDP mode') DEFAULT=False
+workers: 1 # type=int, default=8, help='max dataloader workers (per RANK in DDP mode)') DEFAULT=8
+project: C:\projets\external\database\airbus-aircraft-detection\data-2022-09-11\finetuned # default=ROOT / 'runs/train', help='save to project/name')
+name: exp # default='exp', help='save to project/name')
+exist_ok: False # action='store_true', help='existing project/name ok, do not increment') DEFAULT=False
+quad: False # action='store_true', help='quad dataloader') DEFAULT=False
+cos_lr: False # action='store_true', help='cosine LR scheduler') DEFAULT=False (VENIR JOUER AVEC CELA??)
+label_smoothing: 0.0 # type=float, default=0.0, help='Label smoothing epsilon')
+patience: 100 # type=int, default=100, help='EarlyStopping patience (epochs without improvement)')
+freeze: [24] # nargs='+', type=int, default=[0], help='Freeze layers: backbone=10, first3=0 1 2')
+save_period: -1 # type=int, default=-1, help='Save checkpoint every x epochs (disabled if < 1)')
+seed: 0 # type=int, default=0, help='Global training seed')
+local_rank: -1 # type=int, default=-1, help='Automatic DDP Multi-GPU argument, do not modify')
+
+# Logger arguments
+entity: None # default=None, help='Entity')
+upload_dataset: False # nargs='?', const=True, default=False, help='Upload data, "val" option')
+bbox_interval: -1 # type=int, default=-1, help='Set bounding-box image logging interval')
+artifact_alias: latest # type=str, default='latest', help='Version of dataset artifact to use')
+
+

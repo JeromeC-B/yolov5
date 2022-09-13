@@ -1,9 +1,12 @@
 # config for the detect run function
-weights: C:\projets\yolov5\yolov5s.pt # model.pt path(s)
+#weights: C:\projets\yolov5\yolov5s.pt # model.pt path(s)
+weights: C:\projets\external\database\airbus-aircraft-detection\data-2022-09-11\finetuned\exp23\weights\best.pt # model.pt path(s)
 source: C:\projets\external\database\airbus-aircraft-detection\raw-data\archive\extras # file/dir/URL/glob, 0 for webcam
-data: C:\projets\yolov5\src_jer\airbus_aircraft\configs\yolov5\yolov5-dataset\dataset.yaml # dataset.yaml path
+# pour data: je pense que si on utilise un yolov5 modèle, bien les names sont déjà inclus dans le modèle... dans le code, cela ne semble pas utiliser data
+# si jamais le modèle possède déjà les names sur lesquels il a été entraînés
+data: C:\projets\yolov5\src_jer\airbus_aircraft\configs\dataset\dataset.yaml # dataset.yaml path
 imgsz: (2560, 2560) # inference size (height, width)
-conf_thres: 0.25  # confidence threshold DEFAULT=0.25
+conf_thres: 0.1  # confidence threshold DEFAULT=0.25
 iou_thres: 0.45  # NMS IOU threshold DEFAULT=0.45
 max_det: 1000  # maximum detections per image DEFAULT=1000
 device: 0
@@ -17,12 +20,12 @@ agnostic_nms: False  # class-agnostic NMS DEFAULT=False
 augment: False  # augmented inference DEFAULT=False
 visualize: False  # visualize features DEFAULT=False
 update: False  # update all models DEFAULT=False
-project: C:\projets\external\database\airbus-aircraft-detection\data-2022-09-11\pretrained # save results to project/name
-name: exp  # save results to project/name DEFAULT=exp
+project: C:\projets\external\database\airbus-aircraft-detection\data-2022-09-11\finetuned # save results to project/name
+name: test-data  # save results to project/name DEFAULT=exp
 exist_ok: False # existing project/name ok, do not increment DEFAULT=False
 line_thickness: 3  # bounding box thickness (pixels) DEFAULT=3
 hide_labels: False  # hide labels DEFAULT=False
 hide_conf: False  # hide confidences DEFAULT=False
-half: True  # use FP16 half-precision inference DEFAULT=False
+half: False  # use FP16 half-precision inference DEFAULT=False
 dnn: False  # use OpenCV DNN for ONNX inference DEFAULT=False
 vid_stride: 1  # video frame-rate stride DEFAULT=1

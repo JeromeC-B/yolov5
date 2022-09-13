@@ -1,9 +1,9 @@
 ## <div align="center">TODO</div>
 
-- train from scratch on airplaine yolov5s
+- finetuned on airplane yolov5s
   - Faire le jeu trian/val avec le .txt
   - Est-ce que la derniere layer se crée automatiquement quand dans le yaml cest pas les mêmes classes?
-- finetuned on airplane yolov5s
+- train from scratch on airplaine yolov5s
 - définir une métrique pour voir les meilleurs résultats?
   - Se choisir un jeu de test?
 - Apprendre à utiliser wandb?
