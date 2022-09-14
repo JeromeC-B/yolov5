@@ -3,7 +3,7 @@ weights: C:\projets\yolov5\yolov5s.pt # type=str, default=ROOT / 'yolov5s.pt', h
 cfg: "" # type=str, default='', help='model.yaml path')
 data: C:\projets\yolov5\src_jer\airbus_aircraft\configs\dataset\dataset.yaml # type=str, default=ROOT / 'data/coco128.yaml', help='dataset.yaml path')
 hyp: C:\projets\yolov5\src_jer\airbus_aircraft\configs\hyps\hyp.scratch-low-jer.yaml # type=str, default=ROOT / 'data/hyps/hyp.scratch-low.yaml', help='hyperparameters path')
-epochs: 10 # type=int, default=300, help='total training epochs')
+epochs: 500 # type=int, default=300, help='total training epochs')
 batch_size: 2 # type=int, default=16, help='total batch size for all GPUs, -1 for autobatch')
 imgsz: 2560 # type=int, default=640, help='train, val image size (pixels)')
 rect: False # action='store_true', help='rectangular training') ## JE PENSE QUE rect == False pour train loader, et par defautl pour val loader == True.. voir dans code
@@ -21,7 +21,7 @@ multi_scale: False # action='store_true', help='vary img-size +/- 50%%') DEFAULT
 single_cls: False # action='store_true', help='train multi-class data as single-class') DEFAULT=False
 optimizer: SGD # type=str, choices=['SGD', 'Adam', 'AdamW'], default='SGD', help='optimizer') DEFAULT=SGD   (VENIR JOUER AVEC CE PARAM)
 sync_bn: False # action='store_true', help='use SyncBatchNorm, only available in DDP mode') DEFAULT=False
-workers: 2 # type=int, default=8, help='max dataloader workers (per RANK in DDP mode)') DEFAULT=8
+workers: 1 # type=int, default=8, help='max dataloader workers (per RANK in DDP mode)') DEFAULT=8
 project: C:\projets\external\database\airbus-aircraft-detection\data-2022-09-11\finetuned # default=ROOT / 'runs/train', help='save to project/name')
 name: exp # default='exp', help='save to project/name')
 exist_ok: False # action='store_true', help='existing project/name ok, do not increment') DEFAULT=False
@@ -32,7 +32,7 @@ patience: 100 # type=int, default=100, help='EarlyStopping patience (epochs with
 # ### 24 == toutes les layers sauf la dernière convolution (après la dernière layer...)
 # ### 10 == freeze backbone
 # ### 23 == freeze tout sauf la dernière layer
-freeze: [24] # nargs='+', type=int, default=[0], help='Freeze layers: backbone=10, first3=0 1 2')
+freeze: [10] # nargs='+', type=int, default=[0], help='Freeze layers: backbone=10, first3=0 1 2')
 save_period: -1 # type=int, default=-1, help='Save checkpoint every x epochs (disabled if < 1)')
 seed: 0 # type=int, default=0, help='Global training seed')
 local_rank: -1 # type=int, default=-1, help='Automatic DDP Multi-GPU argument, do not modify')

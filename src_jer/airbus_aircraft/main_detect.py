@@ -20,7 +20,7 @@ if __name__ == '__main__':
 
     time_debut = time.time()
 
-    with open(r"C:\projets\yolov5\src_jer\airbus_aircraft\configs\yolov5\detect_config.yaml", 'r') as stream:
+    with open(r"C:\projets\yolov5\src_jer\airbus_aircraft\configs\detect_config.yaml", 'r') as stream:
         config = yaml.safe_load(stream)
 
     detect.run(weights=config["weights"],
