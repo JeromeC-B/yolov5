@@ -1,6 +1,6 @@
 # config for the train run function
-weights: C:\projets\yolov5\yolov5s.pt # type=str, default=ROOT / 'yolov5s.pt', help='initial weights path, "" if from scratch')
-cfg: "" # type=str, default='', help='model.yaml path')
+weights: "" # type=str, default=ROOT / 'yolov5s.pt', help='initial weights path, "" if from scratch')
+cfg: C:\projets\yolov5\models\yolov5s.yaml # type=str, default='', help='model.yaml path')
 data: C:\projets\yolov5\src_jer\airbus_aircraft\configs\dataset\dataset.yaml # type=str, default=ROOT / 'data/coco128.yaml', help='dataset.yaml path')
 hyp: C:\projets\yolov5\src_jer\airbus_aircraft\configs\hyps\hyp.scratch-low-jer.yaml # type=str, default=ROOT / 'data/hyps/hyp.scratch-low.yaml', help='hyperparameters path')
 epochs: 3000 # type=int, default=300, help='total training epochs')
@@ -22,7 +22,7 @@ single_cls: False # action='store_true', help='train multi-class data as single-
 optimizer: SGD # type=str, choices=['SGD', 'Adam', 'AdamW'], default='SGD', help='optimizer') DEFAULT=SGD   (VENIR JOUER AVEC CE PARAM)
 sync_bn: False # action='store_true', help='use SyncBatchNorm, only available in DDP mode') DEFAULT=False
 workers: 1 # type=int, default=8, help='max dataloader workers (per RANK in DDP mode)') DEFAULT=8
-project: C:\projets\external\database\airbus-aircraft-detection\data-2022-09-11\finetuned # default=ROOT / 'runs/train', help='save to project/name')
+project: C:\projets\external\database\airbus-aircraft-detection\data-2022-09-11\scratch # default=ROOT / 'runs/train', help='save to project/name')
 name: exp # default='exp', help='save to project/name')
 exist_ok: False # action='store_true', help='existing project/name ok, do not increment') DEFAULT=False
 quad: False # action='store_true', help='quad dataloader') DEFAULT=False
@@ -32,7 +32,7 @@ patience: 500 # type=int, default=100, help='EarlyStopping patience (epochs with
 # ### 24 == toutes les layers sauf la dernière convolution (après la dernière layer...)
 # ### 10 == freeze backbone
 # ### 23 == freeze tout sauf la dernière layer
-freeze: [10] # nargs='+', type=int, default=[0], help='Freeze layers: backbone=10, first3=0 1 2')
+freeze: [0] # nargs='+', type=int, default=[0], help='Freeze layers: backbone=10, first3=0 1 2')
 save_period: -1 # type=int, default=-1, help='Save checkpoint every x epochs (disabled if < 1)')
 seed: 0 # type=int, default=0, help='Global training seed')
 local_rank: -1 # type=int, default=-1, help='Automatic DDP Multi-GPU argument, do not modify')
