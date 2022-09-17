@@ -3,7 +3,7 @@ weights: C:\projets\yolov5\yolov5s.pt # type=str, default=ROOT / 'yolov5s.pt', h
 cfg: "" # type=str, default='', help='model.yaml path')
 data: C:\projets\yolov5\src_jer\airbus_aircraft\configs\dataset\dataset.yaml # type=str, default=ROOT / 'data/coco128.yaml', help='dataset.yaml path')
 hyp: C:\projets\yolov5\src_jer\airbus_aircraft\configs\hyps\hyp.scratch-low-jer.yaml # type=str, default=ROOT / 'data/hyps/hyp.scratch-low.yaml', help='hyperparameters path')
-epochs: 500 # type=int, default=300, help='total training epochs')
+epochs: 3000 # type=int, default=300, help='total training epochs')
 batch_size: 2 # type=int, default=16, help='total batch size for all GPUs, -1 for autobatch')
 imgsz: 2560 # type=int, default=640, help='train, val image size (pixels)')
 rect: False # action='store_true', help='rectangular training') ## JE PENSE QUE rect == False pour train loader, et par defautl pour val loader == True.. voir dans code
@@ -28,7 +28,7 @@ exist_ok: False # action='store_true', help='existing project/name ok, do not in
 quad: False # action='store_true', help='quad dataloader') DEFAULT=False
 cos_lr: False # action='store_true', help='cosine LR scheduler') DEFAULT=False (VENIR JOUER AVEC CELA??)
 label_smoothing: 0.0 # type=float, default=0.0, help='Label smoothing epsilon')
-patience: 100 # type=int, default=100, help='EarlyStopping patience (epochs without improvement)')
+patience: 500 # type=int, default=100, help='EarlyStopping patience (epochs without improvement)')
 # ### 24 == toutes les layers sauf la dernière convolution (après la dernière layer...)
 # ### 10 == freeze backbone
 # ### 23 == freeze tout sauf la dernière layer
