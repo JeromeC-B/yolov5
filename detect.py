@@ -253,11 +253,11 @@ if __name__ == "__main__":
 
     import torch
     a = torch.cuda.is_available()
-
-    import sys
-    # sys.argv = [__file__, "--weights", "yolov5s.pt", "--source", r"C:\projets\external\database\airbus-aircraft-detection\raw-data\archive\images", "--data",
-    #             r"C:\projets\airbus-aircraft-detection\configs\dataset.yaml", "--imgsz", "2560", "--device", "0", "--project",
-    #             r"C:\projets\external\database\airbus-aircraft-detection\data-2022-09-10"]
+    #
+    # import sys
+    # # sys.argv = [__file__, "--weights", "yolov5s.pt", "--source", r"C:\projets\external\database\airbus-aircraft-detection\raw-data\archive\images", "--data",
+    # #             r"C:\projets\airbus-aircraft-detection\configs\dataset.yaml", "--imgsz", "2560", "--device", "0", "--project",
+    # #             r"C:\projets\external\database\airbus-aircraft-detection\data-2022-09-10"]
 
     opt = parse_opt()
     main(opt)

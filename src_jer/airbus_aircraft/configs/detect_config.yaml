@@ -6,7 +6,7 @@ source: C:\projets\external\database\airbus-aircraft-detection\raw-data\archive\
 # si jamais le modèle possède déjà les names sur lesquels il a été entraînés
 data: C:\projets\yolov5\src_jer\airbus_aircraft\configs\dataset\dataset.yaml # dataset.yaml path
 imgsz: (2560, 2560) # inference size (height, width)
-conf_thres: 0.1  # confidence threshold DEFAULT=0.25
+conf_thres: 0.25  # confidence threshold DEFAULT=0.25
 iou_thres: 0.45  # NMS IOU threshold DEFAULT=0.45
 max_det: 1000  # maximum detections per image DEFAULT=1000
 device: 0

@@ -1,5 +1,5 @@
 """
-But du script: c'est de prendre le fichier annotations.csv et créer le directory labels pour diffents modèles
+But du script: c'est pour faire de l'inférence
 """
 
 import datetime
